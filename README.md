@@ -2,4 +2,4 @@
 
 Checkers game built with Blazor.
 
-Deployed to Azure: https://checkers-codemonkey85.azurewebsites.net/
+Deployed to Azure: https://agreeable-stone-0da5c3d0f.3.azurestaticapps.net/
