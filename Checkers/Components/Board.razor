@@ -1,0 +1,26 @@
+﻿<h3>Board</h3>
+
+<div class="board-grid">
+</div>
+
+@code {
+
+}
+
+<style>
+    :root {
+        --white-tile: white;
+        --black-tile: black;
+    }
+
+    .board-grid {
+        width: 800px;
+        height: 800px;
+        border: 1px solid black;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: repeat(8, 100px);
+        grid-template-rows: repeat(8, 100px);
+        background: repeating-conic-gradient(var(--black-tile) 0% 25%, var(--white-tile) 0% 50%) 0 / 200px 200px;
+    }
+</style>
