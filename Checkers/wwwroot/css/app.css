@@ -1,6 +1,9 @@
 :root {
-    --white-tile: white;
     --black-tile: #7b7b7b;
+    --white-tile: white;
+    --black-piece: #000;
+    --red-piece: #f00;
+    --king-svg: url('../crown.svg');
 }
 
 .piece {
@@ -13,11 +16,25 @@
 }
 
     .piece.black {
-        background-color: #000;
+        background-color: var(--black-piece);
     }
 
     .piece.red {
-        background-color: #f00;
+        background-color: var(--red-piece);
+    }
+
+    .piece.black.king {
+        background-image: var(--king-svg);
+        background-size: 25px auto;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .piece.red.king {
+        background-image: var(--king-svg);
+        background-size: 25px auto;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
 .board-grid {

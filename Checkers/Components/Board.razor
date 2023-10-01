@@ -5,7 +5,9 @@
     {
         for (int column = 0; column < 8; column++)
         {
-            <div class="piece @GetPieceClass(row, column)"></div>
+            var piece = GetPiece(row, column);
+            <div class="piece @GetPieceClass(row, column)">
+            </div>
         }
     }
 </div>
