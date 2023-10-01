@@ -1,36 +1,11 @@
 ﻿<h3>Board</h3>
 
 <div class="board-grid">
-    @for (int column = 0; column < 8; column++)
+    @for (int row = 0; row < 8; row++)
     {
-        for (int row = 0; row < 8; row++)
+        for (int column = 0; column < 8; column++)
         {
-            if (row % 2 == 0)
-            {
-                if (column % 2 == 0)
-                {
-                    <div class="piece red"></div>
-                }
-                else
-                {
-                    <div class="piece black"></div>
-                }
-            }
-            else
-            {
-                if (column % 2 == 0)
-                {
-                    <div class="piece black"></div>
-                }
-                else
-                {
-                    <div class="piece red"></div>
-                }
-            }
+            <div class="piece @GetPieceClass(row, column)"></div>
         }
     }
 </div>
-
-@code {
-
-}
