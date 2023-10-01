@@ -4,7 +4,10 @@
         for (int column = 0; column < 8; column++)
         {
             var piece = GetPiece(row, column);
-            <div class="piece @GetPieceClass(row, column)">
+            var title = GetTileTitle(piece);
+            var cssClass = GetPieceClass(piece);
+
+            <div title="@title" class="piece @cssClass">
             </div>
         }
     }
