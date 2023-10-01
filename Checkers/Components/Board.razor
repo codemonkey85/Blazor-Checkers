@@ -1,26 +1,36 @@
 ﻿<h3>Board</h3>
 
 <div class="board-grid">
+    @for (int column = 0; column < 8; column++)
+    {
+        for (int row = 0; row < 8; row++)
+        {
+            if (row % 2 == 0)
+            {
+                if (column % 2 == 0)
+                {
+                    <div class="piece red"></div>
+                }
+                else
+                {
+                    <div class="piece black"></div>
+                }
+            }
+            else
+            {
+                if (column % 2 == 0)
+                {
+                    <div class="piece black"></div>
+                }
+                else
+                {
+                    <div class="piece red"></div>
+                }
+            }
+        }
+    }
 </div>
 
 @code {
 
 }
-
-<style>
-    :root {
-        --white-tile: white;
-        --black-tile: black;
-    }
-
-    .board-grid {
-        width: 400px;
-        height: 400px;
-        border: 1px solid black;
-        border-radius: 5px;
-        display: grid;
-        grid-template-columns: repeat(8, 50px);
-        grid-template-rows: repeat(8, 50px);
-        background: repeating-conic-gradient(var(--black-tile) 0% 25%, var(--white-tile) 0% 50%) 0 / 100px 100px;
-    }
-</style>
