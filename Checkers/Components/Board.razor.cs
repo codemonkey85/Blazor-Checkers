@@ -1,5 +1,3 @@
-using static Checkers.Components.Enums;
-
 namespace Checkers.Components;
 
 public partial class Board
@@ -21,19 +19,7 @@ public partial class Board
     {
         base.OnInitialized();
 
-        SetPiece(3, 4, PieceType.Red);
-        SetPiece(3, 5, PieceType.Black);
-    }
-}
-
-public static class Enums
-{
-    public enum PieceType
-    {
-        Empty,
-        Red,
-        Black,
-        RedKing,
-        BlackKing
+        SetPiece(0, 1, PieceType.Red);
+        SetPiece(3, 1, PieceType.Black);
     }
 }
