@@ -45,7 +45,7 @@
     display: grid;
     grid-template-columns: repeat(8, 50px);
     grid-template-rows: repeat(8, 50px);
-    background: repeating-conic-gradient(var(--black-tile) 0% 25%, var(--white-tile) 0% 50%) 0 / 100px 100px;
+    background: repeating-conic-gradient(var(--white-tile) 0% 25%, var(--black-tile) 0% 50%) 0 / 100px 100px;
 }
 
 .loading-progress {

@@ -20,8 +20,42 @@ public partial class Board
     protected override void OnInitialized()
     {
         base.OnInitialized();
-
-        SetPiece(0, 1, PieceType.Red);
-        SetPiece(3, 1, PieceType.BlackKing);
+        ResetBoard();
     }
+
+    private void ResetBoard()
+    {
+        for (var row = 0; row < 8; row++)
+        {
+            for (var col = 0; col < 8; col++)
+            {
+                if (DefaultBlackPositions.Contains((row, col)))
+                {
+                    SetPiece(row, col, PieceType.Black);
+                    continue;
+                }
+                if (DefaultRedPositions.Contains((row, col)))
+                {
+                    SetPiece(row, col, PieceType.Red);
+                    continue;
+                }
+                SetPiece(row, col, PieceType.Empty);
+            }
+        }
+
+    }
+
+    private (int Row, int Col)[] DefaultBlackPositions = new (int Row, int Col)[]
+    {
+        (0, 1), (0, 3), (0, 5), (0, 7),
+        (1, 0), (1, 2), (1, 4), (1, 6),
+        (2, 1), (2, 3), (2, 5), (2, 7)
+    };
+
+    private (int Row, int Col)[] DefaultRedPositions = new (int Row, int Col)[]
+    {
+        (5, 0), (5, 2), (5, 4), (5, 6),
+        (6, 1), (6, 3), (6, 5), (6, 7),
+        (7, 0), (7, 2), (7, 4), (7, 6)
+    };
 }
