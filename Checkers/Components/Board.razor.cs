@@ -4,6 +4,27 @@ public partial class Board
 {
     private readonly PieceType[,] pieces = new PieceType[8, 8];
 
+
+    private readonly (int Row, int Col)[] DefaultBlackPositions = new (int Row, int Col)[]
+    {
+        (0, 1), (0, 3), (0, 5), (0, 7),
+        (1, 0), (1, 2), (1, 4), (1, 6),
+        (2, 1), (2, 3), (2, 5), (2, 7)
+    };
+
+    private readonly (int Row, int Col)[] DefaultRedPositions = new (int Row, int Col)[]
+    {
+        (5, 0), (5, 2), (5, 4), (5, 6),
+        (6, 1), (6, 3), (6, 5), (6, 7),
+        (7, 0), (7, 2), (7, 4), (7, 6)
+    };
+
+    private PieceType SelectedPiece { get; set; } = PieceType.Empty;
+
+    private int SelectedRow { get; set; }
+
+    private int SelectedColumn { get; set; }
+
     private PieceType GetPiece(int row, int col) => pieces[row, col];
 
     private static string GetPieceClass(PieceType pieceType) => pieceType switch
@@ -51,20 +72,9 @@ public partial class Board
                 SetPiece(row, col, PieceType.Empty);
             }
         }
-
     }
 
-    private readonly (int Row, int Col)[] DefaultBlackPositions = new (int Row, int Col)[]
+    private void OnTileClick(int row, int column)
     {
-        (0, 1), (0, 3), (0, 5), (0, 7),
-        (1, 0), (1, 2), (1, 4), (1, 6),
-        (2, 1), (2, 3), (2, 5), (2, 7)
-    };
-
-    private readonly (int Row, int Col)[] DefaultRedPositions = new (int Row, int Col)[]
-    {
-        (5, 0), (5, 2), (5, 4), (5, 6),
-        (6, 1), (6, 3), (6, 5), (6, 7),
-        (7, 0), (7, 2), (7, 4), (7, 6)
-    };
+    }
 }

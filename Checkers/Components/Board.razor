@@ -3,11 +3,16 @@
     {
         for (int column = 0; column < 8; column++)
         {
-            var piece = GetPiece(row, column);
+            var _row = row;
+            var _column = column;
+
+            var piece = GetPiece(_row, _column);
             var title = GetTileTitle(piece);
             var cssClass = GetPieceClass(piece);
 
-            <div title="@title" class="piece @cssClass">
+            <div title="@title"
+                 class="piece @cssClass"
+                 onclick="@(() => OnTileClick(_row, _column))">
             </div>
         }
     }
