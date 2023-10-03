@@ -76,5 +76,48 @@ public partial class Board
 
     private void OnTileClick(int row, int column)
     {
+        if (SelectedPiece == PieceType.Empty)
+        {
+            SelectedPiece = GetPiece(row, column);
+            SelectedRow = row;
+            SelectedColumn = column;
+            return;
+        }
+
+        if (SelectedPiece == PieceType.Black)
+        {
+            if (row == SelectedRow + 1 && (column == SelectedColumn - 1 || column == SelectedColumn + 1))
+            {
+                SetPiece(row, column, SelectedPiece);
+                SetPiece(SelectedRow, SelectedColumn, PieceType.Empty);
+                SelectedPiece = PieceType.Empty;
+                StateHasChanged();
+                return;
+            }
+        }
+
+        if (SelectedPiece == PieceType.Red)
+        {
+            if (row == SelectedRow - 1 && (column == SelectedColumn - 1 || column == SelectedColumn + 1))
+            {
+                SetPiece(row, column, SelectedPiece);
+                SetPiece(SelectedRow, SelectedColumn, PieceType.Empty);
+                SelectedPiece = PieceType.Empty;
+                StateHasChanged();
+                return;
+            }
+        }
+
+        if (SelectedPiece is PieceType.BlackKing or PieceType.RedKing)
+        {
+            if ((row == SelectedRow - 1 || row == SelectedRow + 1) && (column == SelectedColumn - 1 || column == SelectedColumn + 1))
+            {
+                SetPiece(row, column, SelectedPiece);
+                SetPiece(SelectedRow, SelectedColumn, PieceType.Empty);
+                SelectedPiece = PieceType.Empty;
+                StateHasChanged();
+                return;
+            }
+        }
     }
 }
